@@ -16,7 +16,7 @@ logger.addHandler(file_handler)
 olt_ip = '192.168.0.1'
 tl1_user = 'user'
 tl1_password = 'password'
-
+unm2000 = '192.168.0.2'
 
 # Importing files from UNM and ISP Software
 serial_username_mac_from_database = read_csv('onus_from_database.csv', sep=';', header=None)
@@ -77,7 +77,7 @@ for line in client_attributes:
         report += ";" + "Bridge\n"
         counter_bridge += 1
     # SENDS COMMANDS TO UNM200 CAUTION - DO NOT ENABLE - ONLY IF YOU WILL REALLY USE
-    # tl1exec.tl1_connect_and_send_commands(olt_ip, tl1_user, tl1_password, commands_to_send)
+    tl1exec.tl1_connect_and_send_commands(unm2000, tl1_user, tl1_password, commands_to_send)
     for commands in commands_to_send:
         print(commands)
     # Create reports and incrementing variables
