@@ -19,8 +19,8 @@ tl1_password = 'password'
 
 
 # Importing files from UNM and ISP Software
-serial_username_mac_from_database = read_csv('onts_from_database.csv', sep=';', header=None)
-slot_pon_serial_from_unm = read_csv('onts_from_unm2000.csv', sep=';', header=None)
+serial_username_mac_from_database = read_csv('onus_from_database.csv', sep=';', header=None)
+slot_pon_serial_from_unm = read_csv('onus_from_unm2000.csv', sep=';', header=None)
 
 # Variable that contain the serial,model,position,username,vlan of the client
 client_attributes = []
@@ -77,7 +77,9 @@ for line in client_attributes:
         report += ";" + "Bridge\n"
         counter_bridge += 1
     # SENDS COMMANDS TO UNM200 CAUTION - DO NOT ENABLE - ONLY IF YOU WILL REALLY USE
-    tl1exec.tl1_connect_and_send_commands(olt_ip, tl1_user, tl1_password, commands_to_send)
+    # tl1exec.tl1_connect_and_send_commands(olt_ip, tl1_user, tl1_password, commands_to_send)
+    for commands in commands_to_send:
+        print(commands)
     # Create reports and incrementing variables
     result_file.write(report)
     report = ""
@@ -87,7 +89,7 @@ for line in client_attributes:
 
 
 print("Amount of ONUs on Database: " + str(len(set(serial_username_mac_from_database[2]))))
-print("Amount of ONUS on Database: " + str(len(set(slot_pon_serial_from_unm[2]))))
+print("Amount of ONUS on UNM2000: " + str(len(set(slot_pon_serial_from_unm[2]))))
 print("Amount of ONUs on Database and not present on UNM: " + str(len(onus_calc_missing[0])))
 print("Amount of ONUs on UNM and not present on Database: " + str(len(onus_calc_missing[1])))
 print("Amount of ONUs configured: " + str(configured_clients_counter))
