@@ -2,8 +2,6 @@ import logging
 from pandas import read_csv
 import onuscalc
 import tl1functions
-import loggingfunctions
-import tl1exec
 
 # START of logging configuration
 logger = logging.getLogger(__name__)
@@ -79,7 +77,7 @@ for line in client_attributes:
         report += ";" + "Bridge\n"
         counter_bridge += 1
     # SENDS COMMANDS TO UNM200 CAUTION - DO NOT ENABLE - ONLY IF YOU WILL REALLY USE
-    # tl1exec.tl1_connect_and_send_commands(olt_ip, tl1_user, tl1_password, commands_to_send)
+    tl1exec.tl1_connect_and_send_commands(olt_ip, tl1_user, tl1_password, commands_to_send)
     # Create reports and incrementing variables
     result_file.write(report)
     report = ""
