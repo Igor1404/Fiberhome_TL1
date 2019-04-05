@@ -20,4 +20,10 @@ After that you can return the pon to PHYS_ID_AUTH
 <p> For define the vlans. Please modify the function: tl1functions.calc_vlanid or 
 you can create a dictionary and make the fork that i will check. </p>
 <h5> Requirements </h5>
-<p> Pandas </p>
+<p> 
+Pandas
+<br>
+Internet Connection
+<br>
+Python 3
+</p>
