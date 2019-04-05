@@ -9,7 +9,7 @@ csv file2: slot, pon, serial, model
 </p>
 
 <h5> Explanation <h5>
-<p>The csv file 1 you will get from you database of clientes. 
+<p>The csv file 1 you will get from your database of clientes. 
 This infomations usually are saved on this database.</p>
 <p>The csv file 2 you will get from the UNM2000, this is what you will do: After reset the OLT
 you will set all PONs to NO_AUTH, when you do that, all ONUs will authenticate and now you have
